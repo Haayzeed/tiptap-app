@@ -126,47 +126,4 @@ export default class BlogController extends Controller {
     printWindow.document.close();
     printWindow.print();
   };
-
-  // add data
-  checkNumber() {
-    let data = document.querySelector('#name').value;
-    const dbname = 'myDB';
-    const requestDB = window.indexedDB.open(dbname);
-    requestDB.onupgradeneeded = () => {
-      let db = requestDB.result;
-      let store = db.createObjectStore('book', { autoIncrement: true });
-      store.add({ content: data });
-    };
-    requestDB.onsuccess = () => {
-      if (requestDB.readyState == 'done') {
-        console.log('Success');
-      }
-    };
-  }
-  // get data
-  getdata = () => {
-    const dbname = 'myDB';
-    const requestDB = window.indexedDB.open(dbname);
-    requestDB.onsuccess = () => {
-      console.log('here');
-      useData();
-    };
-    function useData() {
-      let data = document.querySelector('#name').value;
-      let openDB = requestDB.result;
-      var transaction = openDB.transaction(['book'], 'readwrite');
-      const item = transaction.objectStore('book');
-      //   var items = item.put({ content: data });
-      const items = item.get(1);
-      console.log(items);
-      items.onsuccess = () => {
-        if (items.readyState == 'done') {
-          items.result.content = data;
-          //   console.log(items.result);
-          // console.log(items.result.content);
-          // document.querySelector('#output').textContent = items.result.content;
-        }
-      };
-    }
-  }
 }
