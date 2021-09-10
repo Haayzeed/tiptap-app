@@ -43,3 +43,7 @@ button:hover {
     color: #fff;
     background: #000;
 }
+.isActive {
+    color: #fff;
+    background: #000;
+}

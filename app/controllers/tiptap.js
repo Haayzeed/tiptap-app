@@ -6,8 +6,6 @@ import StarterKit from '@tiptap/starter-kit';
 import TextAlign from '@tiptap/extension-text-align';
 
 export default class BlogController extends Controller {
-  @tracked namess = 'Font Eleniyan';
-  @tracked count = 1002;
   @tracked editor = new Editor({
     element: document.querySelector('.editor'),
     extensions: [
@@ -23,13 +21,12 @@ export default class BlogController extends Controller {
     onUpdate() {
       const json = this.getJSON();
       // send the content to an API here
-      console.log(json.content[0].content[0].text);
       let data = json.content[0].content[0].text;
       const dbname = 'myDB';
       const requestDB = window.indexedDB.open(dbname);
-      requestDB.updateneeded = () => {
+      requestDB.onupgradeneeded = () => {
         let db = requestDB.result;
-        let store = db.createObjectStore('content');
+        let store = db.createObjectStore('content', { autoIncrement: true });
         store.put({ content: data });
       };
       requestDB.onsuccess = () => {

@@ -1,6 +1,6 @@
-{{page-title "Blog"}}
-{{!-- <button type="button" {{on "click" this.getdata}}>Get Data</button> --}}
-  <div class="main-editor">
+{{!-- editor --}}
+<div class="main-editor">
+    {{!-- editor buttons --}}
   <div class="editor-icons">
     <button id="bold" type="button" {{on "click" this.bold}}>Bold</button>
     <button id="italic" type="button" {{on "click" this.italic}}>Italic</button>
@@ -17,5 +17,6 @@
     <button id="clear" type="button" {{on "click" this.clear}}>clear</button>
     <button id="clear" type="button" {{on "click" this.print}}>print</button>
   </div>
+  {{!-- editor view --}}
   <div class="editor"></div>
 </div>
