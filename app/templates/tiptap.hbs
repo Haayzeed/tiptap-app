@@ -1,0 +1,21 @@
+{{page-title "Blog"}}
+{{!-- <button type="button" {{on "click" this.getdata}}>Get Data</button> --}}
+  <div class="main-editor">
+  <div class="editor-icons">
+    <button id="bold" type="button" {{on "click" this.bold}}>Bold</button>
+    <button id="italic" type="button" {{on "click" this.italic}}>Italic</button>
+    <button id="ordered-list" type="button" {{on "click" this.orderedList}}>Ordered List</button>
+    <button id="bullet-list" type="button" {{on "click" this.bulletList}}>Bullet List</button>
+    <button id="left" type="button" {{on "click" this.textAlignLeft}}>left</button>
+    <button id="right" type="button" {{on "click" this.textAlignRight}}>right</button>
+    <button id="center" type="button" {{on "click" this.textAlignCenter}}>center</button>
+    <button id="center" type="button" {{on "click" this.textJustify}}>Justify</button>
+    <button id="h1" type="button" {{on "click" this.headingOne}}>h1</button>
+    <button id="h2" type="button" {{on "click" this.headingTwo}}>h2</button>
+    <button id="h3" type="button" {{on "click" this.headingThree}}>h3</button>
+    <button id="paragraph" type="button" {{on "click" this.paragraph}}>paragraph</button>
+    <button id="clear" type="button" {{on "click" this.clear}}>clear</button>
+    <button id="clear" type="button" {{on "click" this.print}}>print</button>
+  </div>
+  <div class="editor"></div>
+</div>
